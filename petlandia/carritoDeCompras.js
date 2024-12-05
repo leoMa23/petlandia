@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="card-body">
                 <h5 class="card-title">${producto.nombre}</h5>
                 <p class="card-text">Precio: <strong>$${producto.precio.toFixed(
-                  2
+                 0
                 )}</strong></p>
                 <button class="btn btn-danger btn-sm eliminar-producto" data-index="${index}">Eliminar</button>
               </div>
