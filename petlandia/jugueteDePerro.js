@@ -49,6 +49,30 @@ const productos = [
       imagen: "./assets/images/JP8.WEBP",
       precio: 8900,
     },
+    {
+      id: 9,
+      nombre: "Freesbe luminoso led",
+      imagen: "./assets/images/JP9.WEBP",
+      precio: 9200,
+    },
+    {
+      id: 10,
+      nombre: "Gigwi Suppa Cocodrilo",
+      imagen: "./assets/images/JP10.WEBP",
+      precio: 13000,
+    },
+    {
+      id: 11,
+      nombre: "AFP luz para perro",
+      imagen: "./assets/images/JP11.PNG",
+      precio: 12000,
+    },
+    {
+      id: 12,
+      nombre: "Pesa de hilo",
+      imagen: "./assets/images/JP12.WEBP",
+      precio: 3600,
+    },
   ];
 
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
