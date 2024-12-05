@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de tener este archivo CSS -->
+</head>
+<body>
+
+    <div class="container">
+        <h1>Formulario de Registro</h1>
+
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" required>
+            </div>
+
+            <div class="form-group">
+                <label for="domicilio">Domicilio:</label>
+                <input type="text" id="domicilio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gmail">Gmail:</label>
+                <input type="email" id="gmail" required>
+            </div>
+
+            <button type="submit">Guardar</button>
+            <button type="button" id="clear-button">Borrar</button>
+        </form>
+
+        <h2>Lista de Registros</h2>
+        <ul id="registrations-list"></ul>
+    </div>
+
+    <script>
+        const form = document.getElementById('registration-form');
+        const registrationsList = document.getElementById('registrations-list');
+        const clearButton = document.getElementById('clear-button');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el envío del formulario
+
+            const nombre = document.getElementById('nombre').value;
+            const dni = document.getElementById('dni').value;
+            const domicilio = document.getElementById('domicilio').value;
+            const gmail = document.getElementById('gmail').value;
+
+            const listItem = document.createElement('li');
+            listItem.textContent = `Nombre: ${nombre}, DNI: ${dni}, Domicilio: ${domicilio}, Gmail: ${gmail}`;
+            registrationsList.appendChild(listItem);
+
+            form.reset(); // Reiniciar el formulario
+        });
+
+        clearButton.addEventListener('click', function() {
+            form.reset(); // Reiniciar el formulario
+            registrationsList.innerHTML = ''; // Limpiar la lista
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Fondo blanco con opacidad */
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Para el posicionamiento del fondo */
+            z-index: 1; /* Asegura que el formulario esté sobre la imagen de fondo */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button#clear-button {
+            background-color: #dc3545;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #e9ecef;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        /* Estilo para el fondo */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: url('./assets/images/hero-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 0; /* Asegura que la imagen esté detrás del formulario */
+        }
+    </style>
+
+</body>
+</html>
